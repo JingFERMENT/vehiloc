@@ -18,4 +18,20 @@ final class VoituresController extends AbstractController
             'voitures' => $voitures,
         ]);
     }
+
+
+    #[Route('/voiture/{id}', name: 'app_voiture', requirements: ['id' => '\d+'])]
+    public function voiture(int $id, VoitureRepository $respository): Response
+    {
+        $voiture = $respository->find($id);
+        
+        if(!$voiture){
+            return $this->redirectToRoute('app_accueil');
+        }
+        return $this->render('voitures/voiture.html.twig', [
+            'id' => $id,
+            'voiture' => $voiture,
+        ]);
+    }
+    
 }
