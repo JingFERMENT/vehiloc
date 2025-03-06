@@ -33,12 +33,12 @@ final class VoitureFactory extends PersistentProxyObjectFactory
     protected function defaults(): array|callable
     {
         return [
-            'dailyPrice' => self::faker()->randomFloat(),
-            'description' => self::faker()->text(),
+            'dailyPrice' => self::faker()->unique()->randomFloat(2,20,40),
+            'description' => self::faker()->text(255),
             'gearbox' => self::faker()->randomElement(GearboxChoice::cases()),
-            'monthlyPrice' => self::faker()->randomFloat(),
-            'name' => self::faker()->text(255),
-            'nbOfPlaces' => self::faker()->randomNumber(),
+            'monthlyPrice' => self::faker()->unique()->randomFloat(2,800,1000),
+            'name' => self::faker()->words(2, true),
+            'nbOfPlaces' => self::faker()->numberBetween(1, 9),
         ];
     }
 
