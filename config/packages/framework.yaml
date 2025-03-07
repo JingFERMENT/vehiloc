@@ -7,6 +7,9 @@ framework:
 
     #esi: true
     #fragments: true
+    # http_method_override: true 
+    # The option allows you to use the _method request parameter to determine the intended HTTP method for the request. 
+    # This is useful when you want to use a POST form to send a PUT or DELETE request.
 
 when@test:
     framework:

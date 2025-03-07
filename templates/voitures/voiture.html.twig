@@ -5,6 +5,12 @@
 {% block body %}
 <section id="car">
     <a href="{{ path('app_accueil')}}">← Retour</a>
+    
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center m-0" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
     <h1>{{voiture.name}}</h1>
     
     <p class="description-car">{{voiture.description}}</p>
