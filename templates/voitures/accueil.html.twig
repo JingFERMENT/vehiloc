@@ -22,12 +22,12 @@
         {% for voiture in voitures %}
         <article>
             <div class="mini-car-title">
-                <a href="{{ path('app_voiture', {id: voiture.id})}}">
+                <a href="{{ path('app_show', {id: voiture.id})}}">
                     <h3>{{voiture.name}}</h3>
                     <p>ou similaire | Saint-Étienne</p>
                 </a>
                 <div>
-                    <a href="#"><img src="{{ asset('assets/icons/trash.png') }}" alt="Supprimer" /></a>
+                    <a href="{{ path('app_voiture_delete', {id: voiture.id})}}"><img src="{{ asset('assets/icons/trash.png') }}" alt="Supprimer" /></a>
                 </div>
             </div>
             <div class="mini-car-icons">
@@ -49,8 +49,8 @@
                 </div>
             </div>
             <div class="mini-car-price">
-                <p class="price-per-day">{{voiture.dailyPrice | number_format(2, ',', ' ')}} € / jour</p>
-                <p class="price-per-month">{{voiture.monthlyPrice | number_format(2, ',', ' ')}} € / mois</p>
+                <p class="price-per-day">{{voiture.dailyPrice}} € / jour</p>
+                <p class="price-per-month">{{voiture.monthlyPrice}} € / mois</p>
             </div>
         </article>
         {% endfor %}
